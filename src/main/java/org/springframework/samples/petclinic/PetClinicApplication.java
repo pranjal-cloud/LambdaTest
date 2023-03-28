@@ -30,6 +30,38 @@ public class PetClinicApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PetClinicApplication.class, args);
+           
+        ChromeDriver driver = new ChromeDriver();
+
+    //Open Url 
+    driver.get("https://www.lambdatest.com/selenium-playground/");
+
+    //Click on simple form demo
+    driver.findElement(By.xpath("/html/body/div[1]/div[1]/section[2]/div/div/div[1]/div[1]/ul/li[1]/a")).click();
+
+    //Validate url
+    driver. getCurrentUrl(); 
+
+    //Create a variable
+     String s=new String ("Welcome to Lambda Test");
+     
+    //Use this variable to enter values in the “Enter Message” text box.
+    driver.findElement(By.xpath("/html/body/div[1]/div[1]/section[3]/div/div/div[2]/div[1]/div[2]/div/div[1]/input")).sendKeys("Enter Message");
+
+    //Click “Get Checked Value”.
+    driver.findElement(By.xpath("/html/body/div[1]/div[1]/section[3]/div/div/div[2]/div[1]/div[2]/div/div[1]/button")).click();
+
+    //Verify if same text is displayed
+    List<WebElement> l= driver.findElements(By.xpath("//*[contains(text(),'Enter Message')]"));
+    // verify list size
+      if ( l.size() > 0){
+         System.out.println("Text: " + t + " is present. ");
+      } else {
+         System.out.println("Text: " + t + " is not present. ");
+      } 
+        
+        
+        
     }
 
 }
